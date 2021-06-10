@@ -95,14 +95,17 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the yml file to /etc/anisble/files.
-- Update the yml file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the install.yml file to /etc/anisble/files on your Jump Box Ansible container.
+- Update the yml file to 10.1.0.4 ansible_python_interpreter=/usr/bin/python
+- Run the playbook, and navigate to "Elk Server Public IP Address":5601/app/kiana to check that the installation worked as expected.
 
 _Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+- Which file is the playbook?
+	- The yamal or "yml" file 
+ - Where do you copy it?
+    - The Ansible Container
+- Which file do you update to make Ansible run the playbook on a specific machine? The "hosts" file within the Ansible Container.  
+- How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+    - Within the "hosts" file, make a new host range that only has the ELK server private IP listed. Then, within the yml file, specify which host range you would like the yml to excute on.
 - Which URL do you navigate to in order to check that the ELK server is running?
-"ELK server public IP":5601
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+"Elk Server Public IP Address":5601/app/kiana
